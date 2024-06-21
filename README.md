@@ -1,39 +1,40 @@
-# Gh_Surface_Subdivision
+# Gh_Analzye_Slope
 
-![](https://github.com/alitghomi/Gh-Surface_Subdivision/blob/main/assets/surface_subdivision.png)
+![](https://github.com/alitghomi/Gh_Analyze_Slope/blob/main/Assets/analyze_slope.jpg)
 
- Grasshopper python component to subdivide a surface based on its curveture. This component subdivides a NURBS surface by evaluating mean curveture on various points and subidividing the surface using its isocurves on the max curveture point. It repetes this process until it meets the defined cretaria.
+ This Grasshopper file gets a Brep geometry (with no overhangs) and analyzes the slopes of that geometry based on a grid of probs. It outputs the slope percentages as well as vector and mesh visualizations.
 
 ## How to use
 
 ### Inputs
 #### srf
-A NURBS surface to subdivide.
+A NURBS surface to analyze. You can replace it with a Brep component
 
-#### probe_count
-Number of divisions on the surface to evaluate curvetrue.
+#### U_count
+Number of probe rows.
 
-#### tol
-The maximum mean curvetrue. 
+#### V_count
+Number of probe columns. 
 
-#### min_edge_length
+#### Vis Distance From The Inpuy Surface
 The minimum edge length of the output surfaces. 
-
-#### max_iterations
-The number of subdivision iterations 
 
 ### Outputs
 
-#### out
-out messages of the python component.
+#### Probe
+Probe points.
 
-#### remainders
-parts that do not meet the max curveture because they have small edges or not enough iterations.
+#### Vec
+Slope direction at each probe.
 
-#### final_subdivisions
-parts that meet the minimum curvetrue.
+#### Slope Percentages
+Slope Percentages at each probe.
+
+#### Mesh
+Colored mesh based on the slope percentages
 
 ### Notes
-- Since it uses iso curves to subidivde and measure the minimum edge legth, trimmed surface. In those cases I suggest untrim or shrink-trimmed surface and retrim afterwards
-- For the same reason it also won't work with triangular networks. In this case you would need to rebuild the surface in such way that iso curves don't converg to zero.
+- It won't work with overhangs
+- It works with multiple geometeries.
+- All visualizations are adjustable
 
