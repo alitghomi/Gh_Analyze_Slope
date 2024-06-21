@@ -7,8 +7,8 @@
 ## How to use
 
 ### Inputs
-#### srf
-A NURBS surface to analyze. You can replace it with a Brep component
+#### Brep
+A NURBS poly surface or a NURBS surface to analyze.
 
 #### U_count
 Number of probe rows.
@@ -35,6 +35,6 @@ Colored mesh based on the slope percentages
 
 ### Notes
 - It won't work with overhangs
-- It works with multiple geometeries.
+- It works with multiple geometries.
 - All visualizations are adjustable
 
